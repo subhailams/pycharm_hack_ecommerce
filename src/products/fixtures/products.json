@@ -1,0 +1,212 @@
+[
+{
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+        "title": "suspensions",
+        "description": "good one pls try",
+        "slug": "abcs",
+        "category": "parts",
+        "quantity": 1,
+        "price": "1213.00",
+        "image": "products/1041919892/1041919892.JPG",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+        "title": "bikes",
+        "description": "speedster",
+        "slug": "paaapa",
+        "category": "parts",
+        "quantity": 1,
+        "price": "10.00",
+        "image": "products/3264189096/3264189096.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+        "title": "cycles",
+        "description": "awesome bike must try",
+        "slug": "kissme",
+        "category": "spare",
+        "quantity": 1,
+        "price": "2345.00",
+        "image": "products/1798179401/1798179401.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 21,
+    "fields": {
+        "title": "helmet",
+        "description": "cool one",
+        "slug": "loveu",
+        "category": "safety",
+        "quantity": 1,
+        "price": "39.99",
+        "image": "products/1562360411/1562360411.png",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 22,
+    "fields": {
+        "title": "shoes",
+        "description": "juiojkl",
+        "slug": "shoes",
+        "category": "spare",
+        "quantity": 1,
+        "price": "49.99",
+        "image": "products/757367292/757367292.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 23,
+    "fields": {
+        "title": "jacket",
+        "description": "ljkklslaks",
+        "slug": "jacket",
+        "category": "safety",
+        "quantity": 1,
+        "price": "89.99",
+        "image": "products/947419305/947419305.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 24,
+    "fields": {
+        "title": "gear",
+        "description": "dcvgbh",
+        "slug": "gear",
+        "category": "parts",
+        "quantity": 1,
+        "price": "239.99",
+        "image": "products/2970777248/2970777248.JPG",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 25,
+    "fields": {
+        "title": "gloves",
+        "description": "fvdfvfdpkfodb",
+        "slug": "gloves",
+        "category": "safety",
+        "quantity": 1,
+        "price": "20.99",
+        "image": "products/3048646342/3048646342.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 26,
+    "fields": {
+        "title": "motorbike",
+        "description": "vsfvsasa",
+        "slug": "motorbike",
+        "category": "safety",
+        "quantity": 1,
+        "price": "190.99",
+        "image": "products/2571080652/2571080652.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 27,
+    "fields": {
+        "title": "my baby",
+        "description": "sorry for wht i did",
+        "slug": "mybaby",
+        "category": "safety",
+        "quantity": 1,
+        "price": "19.99",
+        "image": "products/1110205092/1110205092.jfif",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 28,
+    "fields": {
+        "title": "sprokets",
+        "description": "csdfsgfzd",
+        "slug": "sprokets",
+        "category": "parts",
+        "quantity": 1,
+        "price": "90.99",
+        "image": "products/959941846/959941846.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 29,
+    "fields": {
+        "title": "muskro ra",
+        "description": "pyaaaar",
+        "slug": "muskora",
+        "category": "spare",
+        "quantity": 1,
+        "price": "39.99",
+        "image": "products/130050626/130050626.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 30,
+    "fields": {
+        "title": "wheels",
+        "description": "zcd,[lsdd",
+        "slug": "wheels",
+        "category": "spare",
+        "quantity": 1,
+        "price": "39.99",
+        "image": "products/452346910/452346910.jpg",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 31,
+    "fields": {
+        "title": "tubes",
+        "description": "vdavd",
+        "slug": "tubes",
+        "category": "spare",
+        "quantity": 1,
+        "price": "39.99",
+        "image": "products/2626524477/2626524477.JPG",
+        "active": true
+    }
+},
+{
+    "model": "products.product",
+    "pk": 32,
+    "fields": {
+        "title": "sai",
+        "description": "dgfnjsghfhdofjz",
+        "slug": "sai",
+        "category": "parts",
+        "quantity": 1,
+        "price": "9.99",
+        "image": "products/3107692720/3107692720.jpeg",
+        "active": true
+    }
+}
+]

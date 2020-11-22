@@ -1,0 +1,306 @@
+{% load static %} 
+{% include "nav.html" %}
+<head>
+ 
+
+
+ 
+  <link
+    href="{% static 'css/profile.css' %}"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
+<body>
+  <!-- <div class="row">
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Edit Profile</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+           
+            <div class="col-md-5 pr-md-1">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text" class="form-control" value="{{ request.user.username }}">
+              </div>
+            </div>
+            <div class="col-md-4 pl-md-1">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" value="{{ request.user.email }}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 pr-md-1">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6 pl-md-1">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"group>
+              <div class="form-">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 pr-md-1">
+              <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="City" value="Mike">
+              </div>
+            </div>
+            <div class="col-md-4 px-md-1">
+              <div class="form-group">
+                <label>Country</label>
+                <input type="text" class="form-control" placeholder="Country" value="Andrew">
+              </div>
+            </div>
+            <div class="col-md-4 pl-md-1">
+              <div class="form-group">
+                <label>Postal Code</label>
+                <input type="number" class="form-control" placeholder="ZIP Code">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group">
+                <label>About Me</label>
+                <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-fill btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-user">
+      <div class="card-body">
+        <p class="card-text">
+          <div class="author">
+            <div class="block block-one"></div>
+            <div class="block block-two"></div>
+            <div class="block block-three"></div>
+            <div class="block block-four"></div>
+            
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Support</h4>
+                      <div class='list-group'>
+                          <a class='list-group-item' href='{% url "index" %}'>Home</a>
+                          <a class='list-group-item' href='{% url "contact" %}'>Contact Us</a>
+                      </div>
+                </div>
+              </div><br>
+         
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Accounts</h4>
+                  <div class='list-group'>
+                    <a class='list-group-item' href='{% url "orders:list" %}'>Orders</a>
+                    <a class='list-group-item' href='{% url "password_reset" %}'>Reset Password</a>
+                  </div>
+            </div>
+          </div>
+      </div>
+      <div class="card-footer1">
+        <div class="button-container">
+          <button href="javascript:void(0)" class="btn btn-icon btn-round btn-facebook">
+            <i class="fa fa-facebook"></i>
+          </button>
+          <button href="javascript:void(0)" class="btn btn-icon btn-round btn-twitter">
+            <i class="fa fa-twitter"></i>
+          </button>
+          <button href="javascript:void(0)" class="btn btn-icon btn-round btn-google">
+            <i class="fa fa-google-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+  <!-- <div id="mountRoot" class="" style="margin-top: -2px;">
+  <div data-reactroot="" class="application-base full-height"> -->
+  <div class="page-page">
+    <div class="account-account">
+      <div class="account-heading">Account</div>
+      <!-- <div>Sanjay Sparkzz</div> -->
+    </div>
+    
+
+    <div class="page-profile">
+      <div class="profileEdit-card">
+        <div class="profileEdit-infoLabel">Edit Profile</div>
+        {% for message in messages %}
+        <div class="alert alert-danger">
+       
+          {{message}}
+        </div>
+        {% endfor %}
+        <form autocomplete="new-password" class="profileEdit-smartForm" method="POST">{% csrf_token %}
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                autocomplete="new-password"
+                value=" " 
+                class="textInput-form-control"
+                placeholder="Enter Your Name"
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 74 -->
+                <!-- /react-text --><!-- react-text: 75 -->Full Name<!-- /react-text --><!-- react-text: 76 --><!-- /react-text --><!-- react-text: 77 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                autocomplete="new-password"
+                value=" "
+                class="textInput-form-control"
+                placeholder="Enter Your Email"
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 83 -->
+                <!-- /react-text --><!-- react-text: 84 -->Email<!-- /react-text --><!-- react-text: 85 --><!-- /react-text --><!-- react-text: 86 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+     
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                autocomplete="new-password"
+                value=" " 
+                class="textInput-form-control"
+                placeholder=""
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 104 -->
+                <!-- /react-text --><!-- react-text: 105 -->Birthday
+                (dd/mm/yyyy)<!-- /react-text --><!-- react-text: 106 --><!-- /react-text --><!-- react-text: 107 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="text"
+                id="location"
+                name="location"
+                autocomplete="new-password"
+                value=" "
+                class="textInput-form-control"
+                placeholder=""
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 113 -->
+                <!-- /react-text --><!-- react-text: 114 -->Location<!-- /react-text --><!-- react-text: 115 --><!-- /react-text --><!-- react-text: 116 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+          <div class="profileEdit-formElement">
+            <!-- <p
+              style="
+                font-size: 12px;
+                margin-bottom: 16px;
+                color: rgba(39, 43, 65, 0.7);
+              "
+            >
+              Alternate mobile number details
+            </p> -->
+            <div class="textInput-form-group">
+              <input
+                type="tel"
+                id="contact"
+                name="contact"
+                autocomplete="new-password"
+                value=""
+                class="textInput-form-control textInput-mobileNumberInput"
+                placeholder="Mobile Number"
+                maxlength="10"
+              /><span
+                class="textInput-placeholderAlternative textInput-mobileNumber"
+                ><!-- react-text: 123 -->+91<!-- /react-text --><span
+                  style="padding: 0px 10px; position: relative; bottom: 1px;"
+                  >|</span
+               <i class="textInput-bar"></i>
+            </div>
+            
+          </div>
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="password"
+                id="password1"
+                name="password1"
+                autocomplete="new-password"
+                value=""
+                class="textInput-form-control"
+                placeholder=""
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 113 -->
+                <!-- /react-text --><!-- react-text: 114 -->Password<!-- /react-text --><!-- react-text: 115 --><!-- /react-text --><!-- react-text: 116 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+          <div class="profileEdit-formElement">
+            <div class="textInput-form-group">
+              <input
+                type="password"
+                id="password2"
+                name="password2"
+                autocomplete="new-password"
+                value=""
+                class="textInput-form-control"
+                placeholder=""
+              /><span class="textInput-topPlaceholderAlternative"
+                ><!-- react-text: 113 -->
+                <!-- /react-text --><!-- react-text: 114 -->Confirm Password<!-- /react-text --><!-- react-text: 115 --><!-- /react-text --><!-- react-text: 116 -->
+                <!-- /react-text --></span
+              ><i class="textInput-bar"></i>
+            </div>
+          </div>
+        <button
+            class="subcomponents-btn profileEdit-buttonSaveDetails profileEdit-noBorderRadius subcomponents-primary"
+          >
+            Save Details
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  {% include "footer.html" %}
+</body>

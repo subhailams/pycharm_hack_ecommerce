@@ -1,0 +1,142 @@
+.slider-box{
+    margin:20px;
+    height:350px;
+    width:250px;
+    position:relative;
+    background-color:#FFFFFF;
+    border-radius:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    border:1px solid rgba(187,187,187,0.40);
+    }
+    @media screen and (min-width:480px){
+        .slider-box{
+            margin:-10px;
+            height:296px;
+            width:250px;
+            position:relative;
+            background-color:#FFFFFF;
+            border-radius:5px #000000;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            border:1px solid rgba(187,187,187,0.40);
+            }
+    }
+    .slider-box a{
+        text-decoration:none;
+        text-align:center;}
+        .img-box{
+            height:170px;
+            }
+            .img-box img{
+                height:auto;
+                max-width:100%;
+                max-height:100%;
+                /* margin-bottom: 20px; */
+                margin-top: 20px;
+            
+            }
+                .time{
+                    position:absolute;
+                    top:0px;
+                    right:7px;
+                    color:green;}
+                    .detail{
+                        display:flex;
+                        flex-direction:column;
+                        align-items:center;
+                        box-sizing:border-box;
+                        font-size:13px;
+                        line-height:35px;}
+                        .price{
+                            columns: #000000;;
+                
+                             line-height:20px;}
+                             .cart{
+                                 position:absolute;
+                                 bottom:0px;
+                                 height:27px;
+                                 background-color:#ff696e;
+                                 width:100%;
+                                 display:flex;
+                                 justify-content:center;
+                                 align-items:center;
+                                padding-top: 1.15em;
+                                padding-bottom: 18px;
+                            }
+                                 .cart a{
+                                     color:#FFFFFF;}
+                                     .slider-box:hover{
+                                         box-shadow:2px 2px 12px rgba(47,47,47,0.40);
+                                         }
+                                         .slider-box:hover .img-box img{
+                                             transform:scale(1.07);
+                                             transition:all ease 0.3s;}
+                                             .cart:hover{
+                                                 transform:scale(1.1);
+                                                 background-color:#fe9048;
+                    box-shadow:2px 2px 12px rgba(47,47,47,0.40);
+                    transition:all ease 0.1s;}
+                    
+                    
+                    
+                    
+                    .heading{
+                        display:flex;
+                        justify-content:center;
+                    }
+                    .heading h1{
+                        border-left:2px solid #000000;
+                        Border-right:2px solid #000000;
+                        background-color:#f05656;
+                        text-shadow:2px 2px 12px rgba(69,66,66,0.3);
+                        padding:0px 10px;
+                        color:#FFFFFF;
+                        margin:20px;
+                        font-size:30px;
+                        font-family:calibri;}
+
+                        .swiper-button-next,
+                        .swiper-button-prev {
+                          background-image: none;
+                          background-size: 0;
+                          background-repeat: no-repeat;
+                          background-position: 0;
+                          margin-top: -1rem;
+                        }
+                  
+                          .arrow-icon {
+                            font-size: 2rem;
+                            color: #000;
+                          }
+                          .swiper-slide {
+                            text-align: center;
+                            font-size: 18px;
+                            background: transparent;
+                            
+                            
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: -webkit-flex;
+                            display: flex;
+                            -webkit-box-pack: center;
+                            -ms-flex-pack: center;
+                            -webkit-justify-content: center;
+                            justify-content: center;
+                            -webkit-box-align: center;
+                            -ms-flex-align: center;
+                            -webkit-align-items: center;
+                            align-items: center;
+                        }
+                        .swiper-container {
+                            width: 100%;
+                            
+                            background:transparent;
+                        }  
+                        

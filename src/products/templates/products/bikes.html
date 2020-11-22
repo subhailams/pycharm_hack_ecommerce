@@ -1,0 +1,260 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include "nav.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'css/slick.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/slick_theme.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/productslider.css' %}" rel='stylesheet' type='text/css' />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/loadImg.js' %}"></script>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+.word {
+  bottom: 0;
+  color: #fff;
+  font-size: 2.5em;
+  height: 2.5em;
+  left: 0;
+  line-height: 2.5em;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
+  top: 0
+}
+
+.word span {
+  display: inline-block;
+  transform: translateX(100%) scale(0.9);
+  transition: transform 500ms;
+}
+
+.word .done {
+  color: #6f6;
+  transform: translateX(0) scale(1);
+}
+
+.overlay {
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
+  background-size: 1000px 2px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+</style>
+
+
+
+<script type="text/javascript">
+
+
+  $(document).ready(function() {
+	if (document.documentElement.clientWidth < 640)
+	{
+		$('.post-wrapper1').slick({
+  
+		slidesToShow: 2,
+		// breakpoint:800,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		// centerPadding:'0',
+		nextArrow: $('.next1'),
+		prevArrow: $('.prev1'),
+		dots: true,
+		// centerMode: true,
+		focusOnSelect: true,
+		// slideMargin:6,
+		easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+	});
+
+}
+	else{
+		$('.post-wrapper1').slick({
+  
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 2000,
+			centerPadding:'0',
+			nextArrow: $('.next1'),
+			prevArrow: $('.prev1'),
+			dots: true,
+			centerMode: true,
+			focusOnSelect: true,
+	});
+}
+
+if (document.documentElement.clientWidth < 900)
+{
+	$('.post-wrapper2').slick({
+  	
+	  slidesToShow: 2,
+	//   breakpoint:800,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	  nextArrow: $('.next2'),
+	  prevArrow: $('.prev2'),
+	//   slideMargin:6,
+	  easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+		});
+	
+}
+else{
+	$('.post-wrapper2').slick({
+  	
+	  slidesToShow: 4,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	  nextArrow: $('.next2'),
+	  prevArrow: $('.prev2'),
+		});
+
+}
+if (document.documentElement.clientWidth < 640)
+{
+	$('.post-wrapper3').slick({
+  	
+	  slidesToShow: 2,
+	//   breakpoint:800,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	  nextArrow: $('.next3'),
+	  prevArrow: $('.prev3'),
+	//   slideMargin:6,
+	  easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+		});
+}
+else{
+	$('.post-wrapper3').slick({
+  	
+	  slidesToShow: 4,
+	  slidesToScroll: 1,
+	  autoplay: true,
+	  autoplaySpeed: 2000,
+	  nextArrow: $('.next3'),
+	  prevArrow: $('.prev3'),
+		});
+	}
+ 
+ });
+</script>
+</head>
+
+<div class="parts">
+	 <div class="container-fluid">
+		 <h2>BIKE-PARTS</h2>
+		 <div class="bike-parts-sec">
+		    
+				 <div class="top">
+					 <ul>
+						 <li><a href="index.html">home</a></li>
+						 <li><a href="#"> / </a></li>
+						 <li><a href="#">parts</a></li>
+					 </ul>				 
+				 </div>
+				 <div class="bike-apparels">
+					 <div class="parts1">
+					 	<div class="page-wrapper">
+							<div class="post-slider">
+                               {% for product in allProds %}
+                               {% if product.0.category == "Scooters" %}
+								<h1 class="slider-title"> {{ product.0.category}}</h1>
+								<!-- <i class="fa fa-chevron-left prev1"></i>
+								<i class="fa fa-chevron-right next1"></i> -->
+								<div class="post-wrapper1">
+									 {% for i in product|slice:"0:" %}
+									<div class="post">
+										<a href=" {% url 'products:view' slug=i.slug %}"><div class="slider-sec">					 
+										 <img src="{{i.image.url}}" alt=""/>
+										 <div class="part-info">
+											 <h5>{{i.title}} <span class="text">{{i.description}}</span><span class="price">Rs. {{i.price}}</span></h5>
+											 <a class="btn btn-danger" href="{% url 'products:view' slug=i.slug %}">Quick View</a>
+										 </div>
+									 </div></a>
+											
+									</div>
+										 {% endfor %} 
+							
+								</div>
+								{% endif %}
+								
+								 {% if product.0.category == "Bikes" %}
+								<h1 class="slider-title"> {{ product.0.category}}</h1>
+								<!-- <i class="fa fa-chevron-left prev2"></i>
+								<i class="fa fa-chevron-right next2"></i> -->
+								
+								<div class="post-wrapper2">
+									 {% for i in product|slice:"0:" %}
+									<div class="post">
+										<a href=" {% url 'products:view' slug=i.slug %}"><div class="slider-sec">					 
+										 <img src="{{i.image.url}}" alt=""/>
+										
+										 <div class="part-info">
+											 <a href="#"><h5>{{i.title}} <span class="text">{{i.description}}</span><span class="price">Rs. {{i.price}}</span></h5></a>
+											 <a class="btn btn-danger" href="{% url 'products:view' slug=i.slug %}">Quick View</a>
+										 </div>
+									 </div></a>
+									 
+									</div>
+										 {% endfor %} 
+										
+							
+								</div> 
+								{% endif %}
+								{% if product.0.category == "Cars" %}
+								<h1 class="slider-title"> {{ product.0.category}}</h1>
+								<!-- <i class="fa fa-chevron-left prev3"></i>
+								<i class="fa fa-chevron-right next3"></i> -->
+								<div class="post-wrapper3">
+									 {% for i in product|slice:"0:" %}
+									<div class="post">
+										<a href=" {% url 'products:view' slug=i.slug %}"><div class="slider-sec">					 
+										 <img src="{{i.image.url}}" alt=""/>
+										 <div class="part-info">
+											 <a href="#"><h5>{{i.title}} <span class="text">{{i.description}}</span><span class="price">Rs. {{i.price}}</span></h5></a>
+											 <a class="btn btn-danger" href="{% url 'products:view' slug=i.slug %}">Quick View</a>
+										 </div>
+									 </div></a>
+											
+									</div>
+										 {% endfor %} 
+										 	
+								</div>
+								{% endif %}  
+							  
+								{% endfor %}  
+								
+							</div>
+						</div>	
+		
+						</div>
+						
+						 <div class="clearfix"></div>
+						 
+					 </div>
+				
+		
+			
+			</div>			 
+			 
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/slick.js' %}">
+</script>
+{% include "footer.html" %}
+</html>

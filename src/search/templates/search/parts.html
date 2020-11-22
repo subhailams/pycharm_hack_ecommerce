@@ -1,0 +1,110 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include "nav.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'css/slick.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/slick_theme.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/productslider.css' %}" rel='stylesheet' type='text/css' />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/loadImg.js' %}"></script>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+.word {
+  bottom: 0;
+  color: #fff;
+  font-size: 2.5em;
+  height: 2.5em;
+  left: 0;
+  line-height: 2.5em;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
+  top: 0
+}
+
+.word span {
+  display: inline-block;
+  transform: translateX(100%) scale(0.9);
+  transition: transform 500ms;
+}
+
+.word .done {
+  color: #6f6;
+  transform: translateX(0) scale(1);
+}
+
+.overlay {
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
+  background-size: 1000px 2px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+</style>
+
+
+
+</head>
+
+<div class="parts" id="mainDiv">
+	 <div class="container-fluid">
+		 <h2>BIKE-PARTS</h2>
+		 <div class="bike-parts-sec">
+		    <!--   <div class="bike-parts"> -->
+				 <div class="top">
+					 <ul>
+						 <li><a href="index.html">home</a></li>
+						 <li><a href="#"> / </a></li>
+						 <li><a href="#">parts</a></li>
+					 </ul>				 
+				 </div>
+				 <div class="bike-apparels">
+					 <div class="parts1">
+					 	<div class="page-wrapper">
+							<div class="post-slider">
+                            
+								<div class="post-wrapper1">
+									 {% for i in object_list|slice:"0:" %}
+									<div class="post">
+										<a href=" {% url 'products:view' slug=i.slug %}"><div class="slider-sec">					 
+										 <img src="{{i.image.url}}" alt=""/>
+										 <div class="part-info">
+											 <a href="#"><h5>{{i.title}} <span class="text">{{i.description}}</span> <span><strong>₹ {{i.price}}</strong></span></h5></a>
+											 <a class="btn btn-danger" href="{% url 'products:view' slug=i.slug %}" onclick="Login();">Quick View</a>
+										 </div>
+									 </div></a>
+											
+									</div>
+										 {% endfor %} 
+							
+								</div>
+								
+							</div>
+						</div>	
+		
+						</div>
+					
+					 </div>
+				
+		
+			
+			</div>			 
+			 
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/slick.js' %}">
+</script>
+{% include "footer.html" %}
+</html>

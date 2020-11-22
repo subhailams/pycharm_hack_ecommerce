@@ -1,0 +1,304 @@
+.profileEdit-formElement {
+    margin: 24px 0;
+    width: 100%;
+  }
+  @media (min-width: 780px) {
+    :not(input):not(textarea):not(button) {
+      -webkit-touch-callout: auto;
+      -webkit-user-select: auto;
+      -moz-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
+    }
+  }
+
+  :not(input):not(textarea):not(button) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .profileEdit-card {
+    background-color: white;
+    text-align: justify;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
+    padding: 25px 10% 18px;
+  }
+  .textInput-form-group {
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .textInput-form-group .textInput-form-control {
+    border: solid 1px #d4d5d9;
+    font-size: 12px;
+    padding: 12px;
+    height: auto;
+    color: #282c3f;
+    width: 100%;
+  }
+  .textInput-form-group input {
+    caret-color: #ff3f6c;
+  }
+  input {
+    outline: 0;
+  }
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+  button,
+  input {
+    overflow: visible;
+  }
+  .textInput-form-group .textInput-topPlaceholderAlternative {
+    color: #94969f;
+    top: -9px;
+    left: 12px;
+    font-size: 12px;
+    padding: 0px 2px;
+    position: absolute;
+    background-color: white;
+  }
+  @media (min-width: 780px) {
+    :not(input):not(textarea):not(button) {
+      -webkit-touch-callout: auto;
+      -webkit-user-select: auto;
+      -moz-user-select: auto;
+      -ms-user-select: auto;
+      user-select: auto;
+    }
+  }
+  :not(input):not(textarea):not(button) {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .textInput-form-group .textInput-bar {
+    display: none;
+  }
+  .subcomponents-btn {
+    padding: 11px 0;
+    border: 1px solid #007bff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #007bff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    width: 100%;
+    outline: 0;
+    cursor: pointer;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-bottom: 1em; 
+  }
+  @media (min-width: 780px) {
+    .profileEdit-buttonChangePwd {
+      margin-bottom: 20px;
+    }
+  }
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    /* font-size: 100%; */
+    line-height: 1.15;
+    margin: 0;
+  }
+  .subcomponents-btn.subcomponents-primary {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  @media (min-width: 780px) {
+    .profileEdit-buttonSaveDetails {
+      margin-top: 0px;
+      position: relative;
+      z-index: 8;
+    }
+  }
+  .profileEdit-noBorderRadius {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+  }
+  @media (min-width: 780px) {
+    .profileEdit-smartForm {
+      margin: 0 40px;
+    }
+  }
+  @media (min-width: 980px) {
+    .page-component,
+    .page-myntraCredit,
+    .page-profile {
+      width: 76%;
+      margin: 15px;
+    }
+  }
+  @media (min-width: 780px) {
+    .page-component,
+    .page-myntraCredit,
+    .page-profile {
+      width: 71%;
+      display: inline-block;
+      margin: 15px;
+    }
+  }
+  .page-myntraCredit,
+  .page-profile,
+  .page-resetPassword {
+    font-size: 14px;
+    /* background: #F5F5F6; */
+  }
+  @media (min-width: 780px) {
+    .account-account {
+      display: block;
+    }
+  }
+  .account-account {
+    /* display: none; */
+    border-bottom: 1px solid #d4d5d9;
+    padding: 15px 0px;
+    font-size: 12px;
+    /* margin-bottom: 2em; */
+    margin-top:-1em ;
+  }
+  .account-heading {
+    font-size: 18px;
+    font-weight: 800;
+  }
+  @media (min-width: 780px) {
+    .sidebar-sidebar {
+      display: inline-block;
+    }
+  }
+  .sidebar-sidebar {
+    vertical-align: top;
+    /* display: none; */
+    border-right: 1px solid #d4d5d9;
+    box-shadow-right: 1px 1px 5px #888888;
+    text-align: left;
+    padding: 0px 25px 0px 0px;
+    font-size: 15px;
+  }
+  .segment-segment:first-child {
+    border-top: none;
+  }
+  .segment-segment {
+    border-top: 1px solid #d4d5d9;
+    padding: 20px 0px;
+    width: 145px;
+  }
+  .segment-link {
+    display: block;
+    margin: 5px 0px;
+  }
+  @media (min-width: 980px) {
+    .page-page {
+      margin: 8% auto;
+      max-width: 980px;
+    }
+  }
+  @media (min-width: 780px) {
+    .page-page {
+      display: block;
+       /* margin: 4% 10%; */
+      margin-left: 25%;
+      margin-right: auto;
+      margin-top: 2em;
+      min-height: 650px;
+      background-color: white;
+    }
+  }
+  .full-height {
+    height: 100%;
+  }
+  @media (min-width: 980px) {
+    .application-base {
+      margin-top: 50px;
+    }
+  }
+  .application-base {
+    color: inherit;
+    margin-top: 5px;
+  }
+  .subcomponents-gender {
+    background-color: #ffffff;
+    padding: 7px 0;
+    border: 1px solid rgba(40, 44, 63, 0.2);
+    width: 50%;
+    outline: 0;
+    cursor: pointer;
+    min-height: 40px;
+    vertical-align: middle;
+  }
+  .subcomponents-gender:last-child {
+    border-left: 0px;
+  }
+  button,
+  select {
+    text-transform: none;
+  }
+  .subcomponents-gender .subcomponents-selected svg {
+    position: absolute;
+    left: -25px;
+    top: -4px;
+  }
+  .subcomponents-gender .subcomponents-selected {
+    position: relative;
+  }
+  .textInput-form-group .textInput-mobileNumberInput {
+    padding-left: 60px;
+  }
+  .profileEdit-formElement input:disabled {
+    color: #94969f;
+    background-color: #f5f5f5;
+  }
+  .textInput-form-group .textInput-placeholderAlternative {
+    color: #94969f;
+    top: 14px;
+    left: 12px;
+    font-size: 12px;
+    position: absolute;
+    pointer-events: none;
+  }
+  @media (min-width: 780px){
+.profileEdit-card {
+  padding-top: 55px;
+  padding-bottom: 40px;
+}
+  }
+  @media (min-width: 780px){
+.profileEdit-infoLabel {
+  margin: 0 40px 0 40px;
+}
+  }
+  .profileEdit-infoLabel {
+  color: #282C3F;
+  font-weight: 400;
+  font-size: 20px;
+  border-bottom: 1px solid #EAEAEC;
+  padding-bottom: 12px;
+  margin: 0;
+}

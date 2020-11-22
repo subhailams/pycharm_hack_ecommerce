@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>Callback</title>
+</head>
+<body>
+    {{response}}
+    <h2>Payment status regarding your Order Id: {{response.ORDERID}}</h2>
+    {% if response.RESPCODE == '01' %}
+    ORDER SUCCESS
+    {% else %}
+    ORDER FAILURE 
+    {% endif %}
+    <img src="{% static 'images/like.png' %}" alt="" />
+</body>
+</html>

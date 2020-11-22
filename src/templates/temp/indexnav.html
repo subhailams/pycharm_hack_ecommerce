@@ -1,0 +1,73 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+    <a class="navbar-brand" href="{% url 'index' %}"><img class="image" src="{% static 'images/endurologo.gif' %}" alt="" /></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'products:products' %}" id="navbarDropdown"
+                    role="button" data-hover="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="Login();">
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'products:products' %}">Parts & Accessories</a>
+                    <a class="dropdown-item" href="{% url 'products:gears' %}">Riding Gears</a>
+                    <!-- <div class="dropdown-divider"></div> -->
+                    <a class="dropdown-item" href="{% url 'products:bikes' %}">Cars & Bikes</a>
+                    <!-- <a class="dropdown-item" href="{% url 'products:products' %}">Disk brakes</a> -->
+                </div>
+            </li>
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- <i class="fa fa-user-circle" aria-hidden="tr- -->
+                    {{request.user.full_name}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!-- <a class="dropdown-item" href="{{request.user}}">dhg</a> -->
+                    <a class="dropdown-item" href="{% url 'account:home' %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'orders:list' %}">Orders</a>
+                    
+                  <a class="dropdown-item" href="{% url 'returnpolicy' %}">Return policy</a>
+                  <!-- <a class="dropdown-item" href="#">Billing</a>
+                  <a class="dropdown-item" href="#">Prefernces</a> -->
+                  <!-- <a class="dropdown-item" href="#">History</a> -->
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                </div>
+              </li>
+            {% else %}
+            <li class="nav-item {% if request.path == login_url %}active{% endif %}">
+                <a class="nav-link" href="{% url 'login'%}">Login</a>
+            </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <form class="form-inline my-2 my-lg-0 search-form" action="{% url 'search' %}"  method="GET" autocomplete="on"  required >
+                <div class="wrap">
+                <div class="search">
+                <input class="searchTerm" type="search" name="q" placeholder="Search">
+                <button class="searchButton" type="submit">
+                    <i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+                </div>
+            </div>
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'cart:cart' %}"> <span class='navbar-cart-count'>{% if not cart_id.isordered %} {{request.session.cart_items}} {% else %} {{0}} {% endif %}</span><img src="{% static 'images/cart.png' %}" alt="" /></a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>

@@ -1,0 +1,253 @@
+{% load static %}
+{% include "nav.html" %}
+<style>
+	#preloader {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+#loader {
+display: block;
+position: relative;
+left: 50%;
+top: 50%;
+opacity: 1;
+width: 150px;
+height: 150px;
+margin: -75px 0 0 -75px;
+border-radius: 50%;
+border: 3px solid transparent;
+border-top-color: #9370DB;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+}
+#loader:before {
+content: "";
+position: absolute;
+top: 5px;
+left: 5px;
+right: 5px;
+bottom: 5px;
+border-radius: 50%;
+border: 3px solid transparent;
+border-top-color: #BA55D3;
+-webkit-animation: spin 3s linear infinite;
+animation: spin 3s linear infinite;
+}
+#loader:after {
+content: "";
+position: absolute;
+top: 15px;
+left: 15px;
+right: 15px;
+bottom: 15px;
+border-radius: 50%;
+border: 3px solid transparent;
+border-top-color: #FF00FF;
+-webkit-animation: spin 1.5s linear infinite;
+animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+0%   {
+-webkit-transform: rotate(0deg);
+-ms-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+@keyframes spin {
+0%   {
+-webkit-transform: rotate(0deg);
+-ms-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+-ms-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+
+</style>
+
+ <script type="text/javascript">
+
+// 	function Login() {
+// 	document.getElementById("mainDiv").style.visibility = 'hidden';
+// 	document.getElementById("loading").style.visibility = 'visible';
+// 	// location = "https://youtube.com";
+//   };
+  
+
+
+ </script>
+ 		<link rel="stylesheet" href="{% static 'css/etalage.css' %}">
+		 <script src="{% static 'js/jquery.etalage.min.js' %}"></script>
+		 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+ <script>
+jQuery(document).ready(function($){
+
+
+ $('#etalage').etalage({
+	 thumb_image_width: 400,
+	 thumb_image_height: 400,
+	 source_image_width: 800,
+	 source_image_height: 1000,
+	 show_hint: true,
+	 click_callback: function(image_anchor, instance_id){
+		 alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+	 }
+ });
+
+});
+</script>
+	 
+<body id="mainDiv">
+<!--/banner-->
+<div  class="product">
+	 <div class="container">
+		 <div class="ctnt-bar cntnt">
+			 <div class="content-bar">
+				 <div class="single-page">
+					 <div class="product-head">
+						<a href="index.html">Home</a> <span></span>	
+						</div>
+					 <!--Include the Etalage files-->
+					<!--//details-product-slider-->
+					 <div class="details-left-slider">
+						 <div class="grid images_3_of_2">
+							<ul id="etalage" class="etalage" style="display: block;width: 400px;height: 537px;">
+							
+								<a href="optionallink.html">
+									<img class="etalage_thumb_image" src="{{object.image.url}}" class="center" />
+									<img class="etalage_source_image" src="{{object.image.url}}" class="center" title="" />
+								</a>
+							
+							<li>
+								<img class="etalage_thumb_image" src="{{object.image.url}}" class="center" />
+								<img class="etalage_source_image" src="{{object.image.url}}" class="center" title="" />
+							</li>
+							<li>
+								<img class="etalage_thumb_image" src="{{object.image.url}}" class="center"  />
+								<img class="etalage_source_image" src="images/m3.jpg"class="center"  />
+							</li>
+						    <li>
+								<img class="etalage_thumb_image" src="images/m4.jpg" class="center"  />
+								<img class="etalage_source_image" src="images/m4.jpg"class="center"  />
+							</li>
+						</ul>
+						</div>
+					 </div>
+					 <div class="details-left-info">
+							<h3>{{ object.title }} </h3>
+								<!-- <h4>Model No: 3498</h4> -->
+							<!-- <h4></h4> -->
+							<p><label>₹</label> {{ object.price }}</p>
+								<!-- <a href="#">Click for offer</a></p> -->
+								<form action="{% url 'cart:update' %}" method="POST">{% csrf_token %}
+									<span class="product-quantity"><p class="qty">Quantity:</p>
+									<input min="1" max="9" type="number" id="quantity" name="qty" value="1" class="form-control input-small"></span>
+									 {% include 'products/snippets/update-cart.html' with product=object cart=cart %}
+									</form>
+						
+							<div class="bike-type">
+							<p>TYPE  :<a href="#">MOUNTAIN BIKE</a></p>
+							<p>BRAND  :<a href="#">SPORTS SCOTTY</a></p>
+							</div>
+							<h5>Description :</h5>
+							<p class="desc">{{object.detail|linebreaks}}</p>
+					 </div>
+					 <div class="clearfix"></div>				 	
+				  </div>
+			  </div>
+		  </div>
+		  <div class="single-bottom2">
+			  <h6>Related Products</h6>
+			
+		{% for product,range,nslides in allProds %}
+		
+		{% for i in product|slice:"0:" %}
+			
+			{% if forloop.counter in loop_times %}
+			{% if i.title != object.title and i.category == object.category  %}
+			 <div class="product">
+					 <div class="product-desc">
+						<hr class="mb-4">
+						  <div class="product-img product-img2">
+							 <img src="{{i.image.url}}" class="img-responsive " alt=""/>
+						 </div>
+						 <div class="prod1-desc">
+								<h5><a class="product_link" href="bicycles.html">{{i.title}}</a></h5>
+								<p class="product_descr"> {{i.description}}</p>									
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="product_price">
+							<span class="price-access">Rs.{{i.price}}</span>	<br>							
+							<a class="button1" href="{% url 'products:view' slug=i.slug %}"><span>View</span></a>
+					 </div>
+						<div class="clearfix"></div>
+			 </div>
+			 <!-- {{ forloop.counter }} -->
+			{% endif %}
+			{% endif %}
+			
+
+		
+		{% endfor %}
+		{% endfor %}
+	
+			 <!-- <div class="product">
+					 <div class="product-desc">
+						  <div class="product-img product-img2">
+							 <img src="images/s2.jpg" class="img-responsive " alt=""/>
+						 </div>
+						 <div class="prod1-desc">
+								<h5><a class="product_link" href="bicycles.html">Mountain Bike</a></h5>
+								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>									
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="product_price">
+							<span class="price-access">$1500.51</span>								
+							<a class="button1" href="cart.html"><span>Add to cart</span></a>
+					 </div>
+				  <div class="clearfix"></div>
+			 </div>
+			 <div class="product">
+					 <div class="product-desc">
+						  <div class="product-img product-img2">
+							 <img src="images/s3.jpg" class="img-responsive " alt=""/>
+						 </div>
+						 <div class="prod1-desc">
+								<h5><a class="product_link" href="bicycles.html">Single Speed Bike</a></h5>
+								<p class="product_descr"> Vivamus ante lorem, eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.eleifend nec interdum non, ullamcorper et arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra. </p>									
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="product_price">
+							<span class="price-access">$800.51</span>								
+							<a class="button1" href="cart.html"><span>Add to cart</span></a>
+					 </div>
+				 <div class="clearfix"></div>
+			  </div> -->
+		 </div>	
+	 </div>
+	
+</div>
+<span id="loading" style="visibility: hidden; text-align: center;">
+	<div id="preloader">
+	   <div id="loader"></div>
+	 </div>
+
+
+ </span>
+{% include "footer.html" %}
+</body>
+

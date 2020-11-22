@@ -1,0 +1,164 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include "nav.html" %}
+
+<!--/banner-->
+<!-- <div class="parts">
+	 <div class="container">
+        <h2>CHECKOUT</h2>
+        <div class="bike-parts-sec">
+            <div class="bike-parts">
+               <div class="top">
+                   <ul>
+                       <li><a href="index.html">home</a></li>
+                       <li><a href="#"> / </a></li>
+                       <li><a href="#">checkout</a></li>
+                   </ul>				 
+				</div>
+				{{object.order_id}} --- {{object.cart}}
+
+				{% if not billing_profile %}
+				<div class='row text-center'>
+					<div class='col-12 col-md-6'>
+						<p class='lead'>Login</p> 
+						{% include 'accounts/snippets/form.html' with form=login_form next_url=request.build_absolute_uri %}
+					</div>
+					<div class='col-12 col-md-6'>
+						{% url "guest_register" as guest_register_url %}
+						{% include 'accounts/snippets/form.html' with form=guest_form next_url=request.build_absolute_uri action_url=guest_register_url %}
+						
+					</div>
+				</div>
+					
+				{% else %}
+				{% if not object.shipping_address %}
+
+				<div class='row'>
+				   <div class='col-md-6 mx-auto col-10'>
+					   <p class='lead'>Shipping Address</p>
+					   <hr/>
+				   {% url "checkout_address_create" as checkout_address_create %}
+				   {% include 'addresses/forms.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='shipping' %}
+				</div>
+			   </div>
+	   
+	   
+			   {% elif not object.billing_address %}
+			   <div class='row'>
+				   <div class='col-md-6 mx-auto col-10'>
+					   <p class='lead'>Billing Address</p>
+					   <hr/>
+				   {% url "checkout_address_create" as checkout_address_create %}
+				   {% include 'addresses/forms.html' with form=address_form next_url=request.build_absolute_uri action_url=checkout_address_create address_type='billing' %}
+				</div>
+			   </div>
+			   {% else %}
+					   <h1>Final checkout</h1>
+					   <p>Cart Items: {% for product in object.cart.products.all %}{{ product }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+					   <p>Shipping Address: {{ object.shipping_address.get_address }}</p>
+					   <p>Billing Address: {{ object.shipping_address.get_address }}</p>
+						<p> Cart Total: {{object.cart.total}}</p>
+						<p>Shipping total :{{object.shipping_total}}</p>
+						<p>Order Total : {{object.total}}</p>
+						<form class='form' method='POST' action="">{% csrf_token %}
+							<button type='submit' class="btn btn-success">Checkout</button>
+						</form>
+				{% endif %}
+			{% endif %} -->
+		 <!-- <div class="col-md-9 cart-items"> -->
+			 <!-- <h2>My Shopping Bag (2)</h2>
+			     <script>$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+						});	  
+					});
+			   </script> -->
+			   <!-- {% if cart.products.exists %}
+			{% for product in cart.products.all %}
+			 <div class="cart-header">
+				 <div class="close1"> </div>
+				 <div class="cart-sec">
+						<div class="cart-item cyc">
+							 <img src="{{ product.image.url }}"/>
+						</div>
+					   <div class="cart-item-info">
+							 <h3>{{ product.title }}<span>Model No: 3578</span></h3>
+							 <h4><span>Rs.</span>{{ product.price }}</h4>
+							 <p class="qty">Qty ::</p>
+							 <input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small">
+							 {% include 'products/snippets/update-cart.html' with product=product cart=cart in_cart=True %}
+					   </div>
+					   <div class="clearfix"></div>
+						<div class="delivery">
+							 <p>Service Charges:: Rs.100.00</p>
+							 <span>Delivered in 2-3 bussiness days</span>
+							 <div class="clearfix"></div>
+				        </div>						
+				  </div>
+			 </div>
+			 {% endfor %}
+		 	{% endif %}
+			  <script>$(document).ready(function(c) {
+					$('.close2').on('click', function(c){
+							$('.cart-header2').fadeOut('slow', function(c){
+						$('.cart-header2').remove();
+					});
+					});	  
+					});
+			 </script> -->
+					
+		 <!-- </div> -->
+		 
+		 
+		 <!-- <div class="col-md-3 cart-total">
+			 <a class="continue" href="{% url 'products:products' %}">Continue to basket</a>
+			 <div class="price-details">
+				 <h3>Price Details</h3>
+				 <span>Total</span>
+				 <span class="total">{{ cart.subtotal }}</span>
+				 <span>Discount</span>
+				 <span class="total">---</span>
+				 <span>Delivery Charges</span>
+				 <span class="total">150.00</span>
+				 <div class="clearfix"></div>				 
+			 </div>	
+			 <h4 class="last-price">TOTAL</h4>
+			 <span class="total final">{{ cart.total }}</span>
+			 <div class="clearfix"></div>
+			 <a class="order" href="#">Place Order</a>
+			 <div class="total-item">
+				 <h3>OPTIONS</h3>
+				 <h4>COUPONS</h4>
+				 <a class="cpns" href="#">Apply Coupons</a>
+				 <p><a href="{% url 'login' %}">Log In</a> to use accounts - linked coupons</p>
+			 </div>
+			</div> -->
+	 <!-- </div>
+</div>
+</div>
+</div> -->
+<!---->
+<head>
+    <title>Cart Report</title>
+</head>
+<body>
+    <!-- {{response}} -->
+   <center><h2>Payment status regarding your Order Id: {{response.ORDERID}}</h2></center><hr/>
+    {% if response.RESPCODE == '01' %}
+    <div class='col-6 mx-auto py-5 text-center'>
+		<h1 class='display-1'>Thank you for your order!!!</h1>
+		  </div>
+    {% else %}
+    <div class='col-6 mx-auto py-5 text-center'>
+		<h1 class='display-1'>Ouch your order failed!!!</h1>
+		  </div> 
+	{% endif %}
+
+
+	
+</body>
+
+  

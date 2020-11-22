@@ -1,0 +1,92 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include "nav.html" %}
+
+<!--/banner-->
+<div class="cart cart-table">
+	<div class="container-fluid">
+		<div class="cart-top">
+		   <a href="index.html">home</a>
+		</div>	
+		<div class="cart-body">
+		<div class="col-md-9 cart-items ">
+			<h2>My Shopping Bag </h2>
+				<!-- ({{ request.session.cart_items }})</h2> -->
+			   <!-- <script>$(document).ready(function(c) {
+				   $('.close1').on('click', function(c){
+					   $('.cart-header').fadeOut('slow', function(c){
+						   $('.cart-header').remove();
+					   });
+					   });	  
+				   });
+			  </script> -->
+			  {% if cart.cartitem_set.exists and not cart.isordered %}
+		   <!--    <div clas="cart-products"> -->
+				<div class="cart-header">
+					{% for item in cart.cartitem_set.all %}
+			<!-- <div class="cart-header"> -->
+				<!-- <div class="close1"> </div> -->
+				<div class="cart-sec">
+					   <div class="cart-item cyc">
+							<img src="{{ item.product.image.url }}"/>
+					   </div>
+					  <div class="cart-item-info">
+							<h4>{{ item.product.title }}</h4><br/>
+							<h4>₹.{{ item.product.price }}</h4>
+							<h4><span>Quantity: {{ item.quantity }}</span></h4>
+							<!-- <p class="qty">Qty ::</p>
+							<input min="1" type="number" id="quantity" name="quantity" value="1" class="form-control input-small"> -->
+							{% include 'carts/snippets/remove-product.html' with product_id=item.product.id %}
+					  </div>
+					  <!-- <div class="clearfix"></div> -->
+					   <div class="delivery">
+							<!-- <p>Service Charges:: Rs.100.00</p> -->
+								<span>Delivered in 5-7 bussiness days</span>
+							<div class="clearfix"></div>
+					   </div>						
+				 </div>
+				 <div class="cart-item-remove-form" style='display:none'>
+				   {% include 'carts/snippets/remove-product.html' %}
+					</div>
+		   <!--  </div> -->
+			{% endfor %}
+		   </div>
+			{% endif %}
+			<!-- <script>$(document).ready(function(c) {
+				   $('.close2').on('click', function(c){
+						   $('.cart-header2').fadeOut('slow', function(c){
+					   $('.cart-header2').remove();
+				   });
+				   });	  
+				   });
+			</script> -->
+				   
+		</div>
+		
+		
+		<div class="col-md-3 cart-total">
+			<a class="continue" href="{% url 'products:products' %}">Continue to basket</a>
+			<div class="price-details">
+				<h3>Price Details</h3>
+				<span>Total</span>
+				<span class="cart-subtotal">{% if not cart.isordered %}{{ cart.subtotal }} {% else %} {{0.0}} {% endif %}</span>
+				<span>Discount</span>
+				<span class="total">---</span>
+				<!-- <span>Delivery Charges</span>
+				<span class="total">100.00</span> -->
+				<div class="clearfix"></div>				 
+			</div>	
+			<h4 class="last-price">TOTAL</h4>
+			<span class="total final">{% if not cart.isordered %}{{ cart.subtotal }} {% else %} {{0.0}} {% endif %}</span>
+			<div class="clearfix"></div>
+			<a class="order" href="{% if request.user.is_authenticated %}{% url 'cart:checkout' %}{% else %}{% url 'cart:login' %}{% endif %}">Place Order</a>
+		
+		   </div>
+	</div>
+   
+   </div>
+</div>
+{% include "footer.html" %}
+
+

@@ -1,0 +1,59 @@
+{% load static %}
+
+{% include "nav.html" %}
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="{% static 'css/password-reset.css' %}" rel='stylesheet' type='text/css' />
+
+<div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                    <h2>Request Refund</h2><br/>
+<!-- <div class="container"> -->
+    {% for message in messages %}
+    <div class="alert alert-danger">
+      {{message}}
+    </div>
+    {% endfor %}
+    
+    <!-- <form method="POST"> -->
+        <!-- {% csrf_token %} -->
+        <form method="POST" id="refundForm" >{% csrf_token %}
+		 
+          <div class="form-group">
+            <div class="col-6-sm-12">
+              <!-- <label for="id_order_id">Order id:</label> -->
+              <input type="text" name="order_id" required id="id_order_id" class="form-control" placeholder="Enter your OrderId">
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <div class="col-6-sm-12">
+              <!-- <label for="id_email">Email:</label> -->
+              <input type="email" name="email" required id="id_email" class="form-control" placeholder="Enter your Email">
+            </div>
+          </div>
+          <!-- <label for="id_message">Message:</label> -->
+          <textarea name="message" cols="40" rows="4" required id="id_message" class="form-control" placeholder="Share your Query"></textarea>
+         <br/>
+          
+          <button type='submit' class='btn btn-primary'>Submit</button> 
+          
+        
+          
+          </form>
+          <!-- {{form.as_p}} -->
+        <!-- <button type='submit' class='btn btn-primary'>Submit</button> -->
+    <!-- </form> -->
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>

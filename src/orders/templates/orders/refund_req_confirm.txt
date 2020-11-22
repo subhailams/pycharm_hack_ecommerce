@@ -1,0 +1,10 @@
+Hello,
+
+Your request for product {{order_id}} refund has been successfully received. After reviewing the products will update the status of ur refund
+
+
+
+
+Thank you, keep shopping with us!!!
+
+Team Enduro

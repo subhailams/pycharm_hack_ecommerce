@@ -1,0 +1,410 @@
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include 'base/js.html' %}
+{% include 'base/css.html' %}
+{% include 'temp/indexnav.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <link href="{% static 'css/index.css' %}" rel='stylesheet' type='text/css' /> -->
+<title>Bike Shop a Ecommerce Category Flat Bootstarp Responsive Website Template| Home :: w3layouts</title>
+
+
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Bike-shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{% static 'css/style.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/seq.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/slider.css' %}" rel='stylesheet' type='text/css' />
+<link  rel="stylesheet" href="{% static 'css/swiper.min.css' %}"/>
+<link  rel="stylesheet" href="{% static 'css/font-awesome.css' %}"/>
+<link rel="stylesheet" href="{% static 'css/style1.css' %}"/>
+
+<link rel="stylesheet" href="{% static 'css/slick1.css' %}"/>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
+				});
+			});
+		</script>					
+</head>
+<body>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+
+	<div class="carousel slide my-4" data-ride="carousel" id="carouselExampleIndicators">
+		<ol class="carousel-indicators">
+		  <li class="active" data-slide-to="0" data-target="#carouselExampleIndicators"></li>
+		  <li class="" data-slide-to="1" data-target="#carouselExampleIndicators"></li>
+		  <li class="" data-slide-to="2" data-target="#carouselExampleIndicators"></li>
+		</ol>
+		
+		<div class="carousel-inner" role="listbox">
+		  <div class="carousel-item active">
+			<img alt="First slide" class="d-block img-fluid" src="{% static 'images/6496.jpg' %}">
+			<div class="caption">
+				<div class="slider">
+							  <div class="callbacks_container">
+								  <ul class="rslides" id="slider">
+									   <li><h1>TECH MOTO</h1></li>
+									   	
+								 </ul>
+								 <p>We <span>have</span> what <span>you</span> want </p>
+								 
+							 </div>
+				   </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<img alt="Second slide" class="d-block img-fluid" src="{% static 'images/bg.jpg' %}">
+			<div class="caption">
+				<div class="slider">
+							  <div class="callbacks_container">
+								  <ul class="rslides" id="slider">
+									   <li><h1>TECH MOTO</h1></li>
+								 </ul>
+								 <p>We <span>have</span> what <span>you</span> want </p>
+								
+							 </div>
+				   </div>
+			</div>
+		  </div>
+		  <div class="carousel-item">
+			<img alt="Third slide" class="d-block img-fluid" src="{% static 'images/car.jpg' %}">
+			<div class="caption">
+				<div class="slider">
+							  <div class="callbacks_container">
+								  <ul class="rslides" id="slider">
+									   <li><h1>TECH MOTO</h1></li>
+									   	
+								 </ul>
+								 <p>We <span>have</span> what <span>you</span> want </p>
+								 
+							 </div>
+				   </div>
+			</div>
+		  </div>
+		</div>
+		<a class="carousel-control-prev" data-slide="prev" href="#carouselExampleIndicators" role="button">
+		  <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+		  <span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" data-slide="next" href="#carouselExampleIndicators" role="button">
+		  <span aria-hidden="true" class="carousel-control-next-icon"></span>
+		  <span class="sr-only">Next</span>
+		</a>
+	  </div>
+	
+	  <div class="container">
+	  <section id="aa-promo">
+		
+		  <div class="row">
+			<div class="col-md-12">
+			  <div class="aa-promo-area">
+				<div class="row">
+				  <!-- promo left -->
+				  <div class="col-md-5 no-padding">                
+					<div class="aa-promo-left">
+					  <div class="aa-promo-banner">                    
+						<img src="{% static 'images/4505.jpg' %}" alt="img">                    
+						<div class="aa-prom-content">
+						  <span>75% Off</span>
+						  <h4><a href="{% url 'category' 'parts' %} ">Parts</a></h4>                      
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  <!-- promo right -->
+				  <div class="col-md-7 no-padding">
+					<div class="aa-promo-right">
+					  <div class="aa-single-promo-right">
+						<div class="aa-promo-banner">                      
+						  <img src="{% static 'images/4504.jpg' %}" alt="img">                      
+						  <div class="aa-prom-content">
+							<span>Exclusive Item</span>
+							<h4><a href="{% url 'category' 'safety' %} ">Safety</a></h4>                        
+						  </div>
+						</div>
+					  </div>
+					  <div class="aa-single-promo-right">
+						<div class="aa-promo-banner">                      
+						  <img src="{% static 'images/16154.jpg' %}" alt="img">                      
+						  <div class="aa-prom-content">
+							<span>Sale Off</span>
+							<h4><a href="{% url 'category' 'parts' %}">Spare</a></h4>                        
+						  </div>
+						</div>
+					  </div>
+					  <div class="aa-single-promo-right">
+						<div class="aa-promo-banner">                      
+						  <img src="{% static 'images/16158.jpg' %}" alt="img">                      
+						  <div class="aa-prom-content">
+							<span>New Arrivals</span>
+							<h4><a href="{% url 'category' 'spare' %}">Wheels</a></h4>                        
+						  </div>
+						</div>
+					  </div>
+					  <div class="aa-single-promo-right">
+						<div class="aa-promo-banner">                      
+						  <img src="{% static 'images/16576.jpg' %}" alt="img">                      
+						  <div class="aa-prom-content">
+							<span>25% Off</span>
+							<h4><a href="{% url 'category' 'safety' %}">Motors</a></h4>                        
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		
+	  </section>	
+	</div>
+
+        <!-- <div class="container">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+               
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="tcb-product-item">
+                                    <div class="tcb-product-photo">
+                                        <a href="#"><img src="{% static 'images/p9.jpg' %}" class="img-responsive" alt="a" /></a>
+                                    </div>
+                                    <div class="tcb-product-info">
+                                        <div class="tcb-product-title">
+                                            <h4><a href="#">Olympus Photo Camera </a></h4></div>
+                                        <div class="tcb-product-rating">
+                                            <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+                                            <a href="#">(4,585 ratings)</a>
+                                        </div>
+                                        <div class="tcb-hline"></div>
+                                        <div class="tcb-product-price">
+                                            $ 495.00 (17% off)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="tcb-product-item">
+                                    <div class="tcb-product-photo">
+                                        <a href="#"><img src="{% static 'images/p10.jpg' %}" class="img-responsive" alt="a" /></a>
+                                    </div>
+                                    <div class="tcb-product-info">
+                                        <div class="tcb-product-title">
+                                            <h4><a href="#">Coca Cola Bottle</a></h4></div>
+                                        <div class="tcb-product-rating">
+                                            <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+                                            <a href="#">(245 ratings)</a>
+                                        </div>
+                                        <div class="tcb-hline"></div>
+                                        <div class="tcb-product-price">
+                                            $ 99.00 (21% off)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="tcb-product-item">
+                                    <div class="tcb-product-photo">
+                                        <a href="#"><img src="{% static 'images/p11.jpg' %}" class="img-responsive" alt="a" /></a>
+                                    </div>
+                                    <div class="tcb-product-info">
+                                        <div class="tcb-product-title">
+                                            <h4><a href="#">Jewel from Italy</a></h4></div>
+                                        <div class="tcb-product-rating">
+                                            <i class="active glyphicon glyphicon-star"></i><i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+                                            <a href="#">(345 ratings)</a>
+                                        </div>
+                                        <div class="tcb-hline"></div>
+                                        <div class="tcb-product-price">
+                                            $ 999.00 (33% off)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="tcb-product-item">
+                                    <div class="tcb-product-photo">
+                                        <a href="#"><img src="{% static 'images/p12.jpg' %}" class="img-responsive" alt="a" /></a>
+                                    </div>
+                                    <div class="tcb-product-info">
+                                        <div class="tcb-product-title">
+                                            <h4><a href="#">White Pepper</a></h4></div>
+                                        <div class="tcb-product-rating">
+                                            <i class="active glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i>
+                                            <a href="#">(45 ratings)</a>
+                                        </div>
+                                        <div class="tcb-hline"></div>
+                                        <div class="tcb-product-price">
+                                            $ 199.00 (37% off)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div> -->
+		
+		
+	<div class="heading">
+		<h1>F E A T U R E D &emsp; P R O D U C T S</h1>
+		</div>
+		<!--swiper slider-->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+			
+			{% for product in allProds %}
+			  <div class="swiper-slide">
+			  <div class="slider-box">
+		<p class="time">New</p>
+		<div class="img-box">
+		<img src="{{product.image.url}}">
+		</div>
+		<p class="detail">{{product.title}}
+		<a href="#" class="price" ><strong>&#x20b9;{{product.price}}</strong></a>
+		</p>
+		<div class="cart">
+		<a href="{% url 'products:view' slug=product.slug %}">Add To Cart</a>
+		</div>
+		</div>
+			  
+			  </div>
+			  {% endfor %}
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-next">
+			<span aria-hidden="true" class="carousel-control-next-icon"></span>
+			<span class="sr-only">Previous</span>
+		  </div>
+		  <div class="swiper-button-prev">
+			<span aria-hidden="true" class="carousel-control-prev-icon"></span>
+			<span class="sr-only">Previous</span>
+		  </div>
+		
+		</div>
+
+		
+			<section id="aa-client-brand">
+				<div class="container-fluid">
+				  <div class="row">
+					<div class="col-md-12">
+					  <div class="aa-client-brand-area">
+						<ul class="aa-client-brand-slider slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" aria-disabled="false" style="display: block;">Previous</button>
+							<div aria-live="polite" class="slick-list draggable">
+								<div class="slick-track" role="listbox" style="opacity: 1; width: 2145px; left: -390px;">
+									<li class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide40" style="width: 160px;">
+										<a href="#" tabindex="-1">
+											<img src="{% static 'images/client-brand-jquery.png' %}" alt="java img">
+										</a></li>
+										<li class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide41" style="width: 160px;">
+											<a href="#" tabindex="-1"><img src="{% static 'images/client-brand-java.png' %}" alt="jquery img"></a></li>
+											<li class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide42" style="width: 160px;">
+												<a href="#" tabindex="0"><img src="{% static 'images/client-brand-html5.png' %}" alt="html5 img"></a></li>
+												<li class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide43" style="width: 160px;">
+													<a href="#" tabindex="0"><img src="{% static 'images/client-brand-css3.png' %}" alt="css3 img"></a></li>
+													<li class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide44" style="width: 160px;">
+														<a href="#" tabindex="0"><img src="{% static 'images/client-brand-joomla.png' %}" alt="wordPress img"></a></li>
+														<li class="slick-slide slick-active" data-slick-index="5" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide45" style="width: 160px;">
+															<a href="#" tabindex="0">
+															<img src="{% static 'images/client-brand-wordpress.png' %}" alt="joomla img"></a></li>
+															<li class="slick-slide slick-active" data-slick-index="6" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide46" style="width: 160px;">
+																<a href="#" tabindex="0"><img src="{% static 'images/client-brand-jquery.png' %}" alt="java img"></a></li>
+																<li class="slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide47" style="width: 160px;">
+																	<a href="#" tabindex="-1"><img src="{% static 'images/client-brand-java.png' %}" alt="jquery img"></a></li>
+																	<li class="slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide48" style="width: 160px;">
+																		<a href="#" tabindex="-1"><img src="{% static 'images/client-brand-html5.png' %}" alt="html5 img"></a></li>
+																		<li class="slick-slide" data-slick-index="9" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide49" style="width: 160px;">
+																			<a href="#" tabindex="-1"><img src="{% static 'images/client-brand-css3.png' %}" alt="css3 img"></a></li>
+																			<li class="slick-slide" data-slick-index="10" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide410" style="width: 160px;">
+																				<a href="#" tabindex="-1"><img src="{% static 'images/client-brand-wordpress.png' %}" alt="wordPress img"></a></li>
+																			</div>
+																			<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;" aria-disabled="false">Next</button></ul>
+																		</div>
+							
+						</ul>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </section>
+			  
+	
+
+		<div class="swiper-container">
+		<section id="aa-support">
+			
+			  <div class="row">
+				<div class="col-md-12">
+				  <div class="aa-support-area">
+					
+					<div class="col-md-4 col-sm-4 col-xs-12">
+					  
+							<span class="focus-inputs100"><i class="fa fa-truck" aria-hidden="true"></i></span>
+							<div class="aa-support-single">	
+						<h4>FREE SHIPPING</h4>
+						<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+					  </div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4 col-xs-12">
+					  <div class="aa-support-single">
+						<span class="fa fa-clock-o"></span>
+						<h4>30 DAYS MONEY BACK</h4>
+						<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+					  </div>
+					</div>
+					
+					<div class="col-md-4 col-sm-4 col-xs-12">
+					  <div class="aa-support-single">
+						<span class="fa fa-phone"></span>
+						<h4>SUPPORT 24/7</h4>
+						<P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, nobis.</P>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			
+		  </section>
+		</div>
+		
+		<script type="text/javascript" src="{% static 'js/swiper.min.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{% include 'footer.html' %}
+</body> 
+</html>

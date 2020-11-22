@@ -1,0 +1,66 @@
+
+{% load static %}
+{% load socialaccount %}
+
+{% include "nav.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> 
+<link href="{% static 'css/login.css' %}" rel='stylesheet' type='text/css' />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'/>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.toggle-password').on('click', function() {
+  $(this).toggleClass('fa-eye fa-eye-slash');
+  let input = $($(this).attr('toggle'));
+  if (input.attr('type') == 'password') {
+    input.attr('type', 'text');
+  }
+  else {
+    input.attr('type', 'password');
+  }
+});
+
+});
+</script>
+</head>
+<body>
+<form class="login-box" name="form"  method="post">{% csrf_token %}
+            <h1>Login</h1>  
+            <div class="textbox">
+              <i class="fas fa-user"></i>
+              <input type="text"name="username" placeholder="Username">
+            </div>
+         
+            <div class="textbox">
+              <i class="fas fa-lock"></i>
+              <input id="input-pwd" type="password" name="password" placeholder="Password">
+              <span toggle="#input-pwd" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+            </div>
+            {% for message in messages %}
+            <div class="alert alert-danger">
+         
+              {{message}}
+            </div>
+            {% endfor %}
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+            <a href="{% provider_login_url 'google' %}" class="btn btn-google btn-user btn-block">
+              <i class="fa fa-google fa-fw"></i><span>Login with Google</span>
+            </a>
+            <a href="{% provider_login_url 'facebook' method='js_sdk' %}" class="btn btn-facebook btn-user btn-block">
+              <i class="fa fa-facebook-f fa-fw"></i> <span>Login with Facebook</span>
+            </a>
+            <div class="d-flex justify-content-center">
+              <a href="{% url 'password_reset' %}" style="color:rgb(27, 121, 245)">Forgot your Password?</a><br/>
+              <a href="{% url 'register' %}">Don't have an account? <span style="color:rgb(27, 121, 245)">Sign Up</span></a> 
+            </div>
+          </form>
+</body>
+ 
+
+
+
+

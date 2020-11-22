@@ -1,0 +1,19 @@
+{% load static %}
+<head>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel='stylesheet' type='text/css' />
+</head>
+<p>Hello,</p>
+
+<p>Your order has been placed successfully!</p>
+<p>Your Order Id: <b>{{order_id}}</b></p>
+<!-- <p>Your Cart Id: <b>{{cart}}</b></p> -->
+{% if order_id.status == "COD" %}
+<p>Your have to pay Rs.{{order_id.total}} while delivering your product.</p>
+{% endif %}
+
+
+
+
+<p>Thank you, keep shopping with us!!!</p>
+
+<p>Team Enduro<p>

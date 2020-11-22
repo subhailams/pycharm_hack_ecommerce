@@ -1,0 +1,88 @@
+{% load static %}
+{% include "nav.html" %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
+        type='text/css' />
+        <link href="{% static 'css/productslider.css' %}" rel='stylesheet' type='text/css' />
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            $('.post-wrapper').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 1000,
+            nextArrow: $('.next'),
+            prevArrow: $('.prev'),
+            });
+           });
+          </script>
+</head>
+<body>
+    <div class="parts">
+        <div class="container-fluid">
+            <h2>BIKE-PARTS ALL</h2>
+            <div class="bike-parts-sec">
+            
+                    <div class="top">
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li><a href="#"> / </a></li>
+                            <li><a href="#">parts</a></li>
+                        </ul>				 
+                    </div>
+                    <div class="bike-apparels">
+                        <div class="page-wrapper">
+							<div class="post-slider">
+                                
+                                {% for product in allProds %}
+                                <h1 class="slider-title"> {{ product.0.category}}</h1>
+                                <i class="fa fa-chevron-left prev"></i>
+								<i class="fa fa-chevron-right next"></i>
+                                
+                               
+                                <div class="post-wrapper">
+                                    {% for i in product|slice:"0:" %}
+                                    
+                                    <div class="post">
+                                        <a href=" {% url 'products:view' pk=i.pk %}"><div class="slider-sec">					 
+                                            <img src="{{i.image.url}}" alt="" class="slider-image"/>
+                                            <div class="part-info">
+                                                <p class="time">New</p>
+                                                <a href="#"><h5>{{i.title}}<span>{{i.price}}</span></h5></a>
+                                                <a class="btn btn-danger" href="{% url 'products:view' pk=i.pk %}">Quick View</a>
+   
+   
+                                            </div>
+                                           
+                                        </div></a>
+                                    </div>
+                                    {% endfor %} 
+                                </div>
+                                {% endfor %}
+                                </div>
+                                </div>
+                      
+							
+						 
+						
+                            
+            
+                        </div>
+                        
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+            
+
+    </div>
+    </div>
+</body>
+</html>

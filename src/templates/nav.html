@@ -1,0 +1,167 @@
+{% load static %}
+{% url 'login' as 'login_url' %}
+{% url 'logout' as 'logout_url' %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Bike Shop a Ecommerce Category Flat Bootstarp Responsive Website Template| Parts :: w3layouts</title>
+
+	<link href="{% static 'css/bootstrap.css' %}" rel='stylesheet' type='text/css' />
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+
+	<link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+	<!-- Custom Theme files -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Bike-shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+	
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+	<link href='http://fonts.googleapis.com/css?family=Roboto:500,900,100,300,700,400' rel='stylesheet'
+		type='text/css' />
+
+	<script src="{% static 'js/jquery.easydropdown.js' %}"></script>
+	<link href="{% static 'css/nav.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src='{% static "ecomjs/ecomm.js" %}'></script>
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- font awesome css -->
+	<link href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'
+		type='text/css' />
+
+<script>
+	function checkScroll(){
+    var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
+
+    if($(window).scrollTop() > startY){
+        $('.navbar').addClass("scrolled");
+    }else{
+        $('.navbar').removeClass("scrolled");
+    }
+}
+
+	if($('.navbar').length > 0){
+		$(window).on("scroll load resize", function(){
+			checkScroll();
+		});
+	}
+	//for navbar trans on scroll
+// 	jQuery(document).ready(function($) {
+// 		$(window).scroll(function() {
+//   if ($(document).scrollTop() > 50) {
+//     $('nav').addClass('transparent');
+//   } else {
+//     $('nav').removeClass('transparent');
+//   }
+// });
+// 	});
+</script>
+
+
+</head>
+
+<body>
+	<!--banner-->
+	<script src="{% static 'js/responsiveslides.min.js' %}"></script>
+	<script>
+		$(function () {
+			$("#slider").responsiveSlides({
+				auto: false,
+				nav: true,
+				speed: 500,
+				namespace: "callbacks",
+				pager: true,
+			});
+		});
+			
+	</script>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary " onscroll="checkScroll()">
+
+		<a class="navbar-brand" href="{% url 'index' %}"><img class="image" src="{% static 'images/tech.gif' %}" alt="" /></a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+
+		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'products:products' %}" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Products
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{% url 'products:products' %}">Parts & Accessories</a>
+						<a class="dropdown-item" href="{% url 'products:gears' %}">Riding Gears</a>
+						<!-- <div class="dropdown-divider"></div> -->
+						<a class="dropdown-item" href="{% url 'products:bikes' %}">Cars & Bikes</a>
+					</div>
+				</li>
+	
+				{% if request.user.is_authenticated %}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">
+						<!-- <i class="fa fa-user-circle" aria-hidden="tr- -->
+						{{request.user.full_name}}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<!-- <a class="dropdown-item" href="{{request.user}}">dhg</a> -->
+						<a class="dropdown-item" href="{% url 'account:home' %}">Profile</a>
+						<a class="dropdown-item" href="{% url 'orders:list' %}"> Orders</a>
+						
+					  <a class="dropdown-item" href="{% url 'returnpolicy' %}">Return policy</a>
+					  
+					  <div class="dropdown-divider"></div>
+					  <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+					</div>
+				  </li>
+				{% else %}
+				<li class="nav-item {% if request.path == login_url %}active{% endif %}">
+					<a class="nav-link" href="{% url 'login'%}">Login</a>
+				</li>
+				{% endif %}
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'contact' %}">Contact</a>
+				</li>
+			
+				<form class="form-inline my-2 my-lg-0 search-form" action="{% url 'search' %}"  method="GET" autocomplete="on"  required >
+					<div class="wrap">
+					<div class="search">
+					<input class="searchTerm" type="search" name="q" placeholder="Search">
+					<button class="searchButton" type="submit">
+						<i class="fa fa-search" aria-hidden="true"></i></button>
+				</form>
+					</div>
+				</div>
+				
+				<li class="nav-item ">
+					<a class="nav-link" href="{% url 'cart:cart' %}"> <span class='navbar-cart-count'>{% if not cart_id.isordered %} {{request.session.cart_items}} {% else %} {{0}} {% endif %}</span><img src="{% static 'images/cart.png' %}" alt="" /></a>
+				</li>
+
+			</ul>
+
+		</div>
+	</nav>
+
+</body>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>   
+
+</html>

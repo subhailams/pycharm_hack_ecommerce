@@ -1,0 +1,364 @@
+{% load static %}
+{% url 'login' as login_url %}
+{% url 'logout' as logout_url %}
+{% include "nav.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+<link href="{% static 'css/slick.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/slick_theme.css' %}" rel='stylesheet' type='text/css' />
+<link href="{% static 'css/productslider.css' %}" rel='stylesheet' type='text/css' />
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/loadImg.js' %}"></script>
+<script src="{% static 'js/jsonData.js' %}"></script>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+.word {
+  bottom: 0;
+  color: #fff;
+  font-size: 2.5em;
+  height: 2.5em;
+  left: 0;
+  line-height: 2.5em;
+  margin: auto;
+  right: 0;
+  position: absolute;
+  text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
+  top: 0
+}
+
+.word span {
+  display: inline-block;
+  transform: translateX(100%) scale(0.9);
+  transition: transform 500ms;
+}
+
+.word .done {
+  color: #6f6;
+  transform: translateX(0) scale(1);
+}
+
+.overlay {
+  background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
+  background-size: 1000px 2px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+</style>
+<script type="text/javascript">
+	var data = JSON.parse("{{jsonData|escapejs}}"); 
+	
+
+	function sort(value){
+		console.log(value);
+		let allProds = []
+		var text = "";
+		for(i of data){
+			
+			if(i.fields.subcategory == value)
+			{
+				
+				allProds.push(i)
+				text += ` 
+				
+						<div class="part-sec">	
+
+						<img src="/media/${i.fields.image}" alt=""/>
+						<div class="part-info">
+						<a href="#"><h5>${i.fields.title} <span class="text">${i.fields.description}</span> <span><strong>₹ ${i.fields.price}</strong></span></h5></a>
+						<a class="btn btn-danger" onclick="Login();">Quick View</a>
+						</div>
+						</div>
+						`
+			}
+			
+		}
+
+		document.getElementById('cat').innerHTML=text;
+		console.log(allProds);
+
+	}
+	jQuery(document).ready(function($) {
+	var btn = $('#button');
+
+		$(window).scroll(function() {
+		if ($(window).scrollTop() > 300) {
+			btn.addClass('show');
+		} else {
+			btn.removeClass('show');
+		}
+		});
+
+		btn.on('click', function(e) {
+		e.preventDefault();
+		$('html, body').animate({scrollTop:0}, '300');
+		});
+	});
+
+
+	
+</script>
+
+
+
+</head>
+
+<div class="parts" id="mainDiv">
+	
+	 <div class="container">
+		 <h2>BIKE-PARTS</h2>
+		 <div class="bike-parts-sec">
+		      <div class="bike-parts">
+				 <div class="top">
+					 <ul>
+						 <li><a href="index.html">home</a></li>
+						 <li><a href="#"> / </a></li>
+						 <li><a href="#">parts</a></li>
+					 </ul>				 
+				 </div>
+				 <div class="bike-apparels">
+					 <div class="parts1"><br>
+						<div class="col-lg-2 mt-7 p-lg-0 col-md-4 col-sm-4  ">
+							<form  method='POST' action="{% url 'products:sort'  %}"  class="form"> {% csrf_token %}
+							<div class="side-bar p-sm-4 p-3">
+								<div class="border-bottom py-2">
+									
+									<h3 class="agileits-sear-head mt-3 mb-3">Brand</h3>
+									<!-- <form action="#" method="post">
+										<input type="search" placeholder="Search Brand..." name="search" required="">
+										<input type="submit" value=" ">
+									</form> --> 
+									<div class="left-side py-2">
+										<ul>
+											<li>
+												<input type="checkbox" onclick="sort(this.value)" name="checks" class="checked" id="check" value="mobiles">
+												<span class="span">mobiles</span>
+											</li>
+											<li>
+												<input type="checkbox" name="checks" onclick="sort(this.value)" class="checked" id="check" value="automob">
+												<span class="span">automob</span>
+											</li>
+											<li>
+												<input type="checkbox" name="checks" onclick="sort(this.value)" class="checked" id="check" value="hel">
+												<span class="span">hel</span>
+											</li>
+											
+										</ul>
+									</div>
+								</div>
+								<!-- ram -->
+								<div class="left-side border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">Ram</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Less than 512 MB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">512 MB - 1 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">1 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">2 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">3 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">5 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">6 GB</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">6 GB & Above</span>
+										</li>
+									</ul>
+								</div>
+								<!-- //ram -->
+								<!-- price -->
+								
+									<strong>Sort by Price:</strong> 
+									  <input type='hidden'  name='category' value='{{category}}' />
+									  <label for="min"> Min:</label>
+									  <input type="number" id="min" name="min">
+									  <label for="max"> Max:</label>
+									  <input type="number" id="max" name="max">
+									  <button type='submit'  class='btn btn-primary'>Go</button>
+									
+			
+								<!-- <div class="range border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">Price</h3>
+									<div class="w3l-range">
+										<ul>
+											<li>
+												<a href="#">Under $1,000</a>
+											</li>
+											<li class="my-1">
+												<a href="#">$1,000 - $5,000</a>
+											</li>
+											<li>
+												<a href="#">$5,000 - $10,000</a>
+											</li>
+											<li class="my-1">
+												<a href="#">$10,000 - $20,000</a>
+											</li>
+											<li>
+												<a href="#">$20,000 $30,000</a>
+											</li>
+											<li class="mt-1">
+												<a href="#">Over $30,000</a>
+											</li>
+										</ul>
+									</div>
+								</div> -->
+								<!-- //price -->
+								<!-- discounts -->
+								<div class="left-side border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">Discount</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">5% or More</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">10% or More</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">20% or More</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">30% or More</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">50% or More</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">60% or More</span>
+										</li>
+									</ul>
+								</div>
+								<!-- //discounts -->
+								<!-- offers -->
+								<div class="left-side border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">Offers</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Exchange Offer</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">No Cost EMI</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Special Price</span>
+										</li>
+									</ul>
+								</div>
+								<!-- //offers -->
+								<!-- delivery -->
+								<div class="left-side border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">Cash On Delivery</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Eligible for Cash On Delivery</span>
+										</li>
+									</ul>
+								</div>
+								<!-- //delivery -->
+								<!-- arrivals -->
+								<div class="left-side border-bottom py-2">
+									<h3 class="agileits-sear-head mb-3">New Arrivals</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Last 30 days</span>
+										</li>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Last 90 days</span>
+										</li>
+									</ul>
+								</div>
+								<div class="left-side py-2">
+									<h3 class="agileits-sear-head mb-3">Availability</h3>
+									<ul>
+										<li>
+											<input type="checkbox" class="checked">
+											<span class="span">Exclude Out of Stock</span>
+										</li>
+									</ul>
+								</div>
+								<!-- //arrivals -->
+							</div>
+						</form>
+							<!-- //product right -->
+						</div>
+					
+		
+									<div id="cat">
+									 {% for i in allProds %}
+
+											<div class="slider-sec col-lg-2  col-md-3 col-sm-6">	
+												  
+										 <img src="{{i.image.url}}" alt=""/>
+										 <div class="part-info">
+											 <a href="#"><h5>{{i.title}} <span class="text">{{i.description}}</span> <span><strong>₹ {{i.price}}</strong></span></h5></a>
+											 <a class="btn btn-danger" href="{% url 'products:view' slug=i.slug %}" onclick="Login();">Quick View</a>
+										 </div>
+									 </div>
+									</a>
+											
+									
+										 {% endfor %} 
+							
+								
+								
+								
+									</div>
+									<div id="mat">
+
+									</div>
+							
+						</div>
+					
+					 </div>
+				</div>
+		
+			
+			</div>			 
+			 
+	</div>
+	<a id="button"></a>
+</div>
+
+
+<script src="https://cdnjs.cloudfare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="{% static 'js/slick.js' %}">
+</script>
+{% include "footer.html" %}
+</html>
